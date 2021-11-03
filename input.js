@@ -1,7 +1,7 @@
+let connection;
 
-
-
-const setupInput = function () {
+const setupInput = (conn) => {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -17,6 +17,27 @@ const handleUserInput = function () {
       process.stdout.write('bye. \n');
       process.exit();
     }    
+    if (key === 'w') {
+      //write("Thanks for using me, ciao!")
+      connection.write('Move: up');
+
+    }    
+    if (key === 'a') {
+      //write("Thanks for using me, ciao!")
+      connection.write('Move: left');
+
+    }    
+    if (key === 's') {
+      //write("Thanks for using me, ciao!")
+      connection.write('Move: down');
+
+    }    
+    if (key === 'd') {
+      //write("Thanks for using me, ciao!")
+      connection.write('Move: right');
+
+    }    
+    
   });  
 };
 
