@@ -37,7 +37,11 @@ const handleUserInput = function () {
       connection.write('Move: right');
 
     }    
-    
+    if (key === 'q') {
+      //write("Thanks for using me, ciao!")
+      connection.write('Say: out of my way please!!!');
+
+    }  
   });  
 };
 
