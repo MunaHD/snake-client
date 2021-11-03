@@ -13,13 +13,6 @@ const connect = function () {
     console.log("Successfully connected to game server");
     conn.write("Name: MMM")
   });
-
- 
- 
-  conn.on('connect', () => {
-  
-  });
- 
  
   let time = 10
   const timer = function () {
@@ -52,7 +45,11 @@ const connect = function () {
       }, time + 10);
       time += 10
   }
-  setInterval(timer, 10)
+  
+  conn.on('connect', () => {
+    setInterval(timer, 10)
+  });
+  
 
   conn.on('data', (data) => {
     console.log(data);
