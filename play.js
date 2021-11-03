@@ -12,11 +12,14 @@ const connect = function () {
 
  
   
-  conn.on('connect', () => {
-    conn.write('Name: Ummm');
-    console.log('you ded cuz you idled');
+  conn.on('data', (data) => {
+    console.log(data);
+    conn.end();
   });
-  
+  // conn.end('end', () => {
+  //   //conn.write('Name: Ummm');
+  //   console.log('you ded cuz you idled');
+  // });
 
   return conn;
 };
