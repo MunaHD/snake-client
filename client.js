@@ -1,3 +1,4 @@
+const net = require("net");
 
 const connect = function () {
   const conn = net.createConnection({
@@ -8,12 +9,19 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  conn.on('connect', () => {
-    conn.write('Name: Ummm');
-    console.log('you ded cuz you idled');
-  });
+ 
   
+  conn.on('data', (data) => {
+    console.log(data);
+    conn.end();
+  });
+  // conn.end('end', () => {
+  //   //conn.write('Name: Ummm');
+  //   console.log('you ded cuz you idled');
+  // });
+
   return conn;
 };
 
-module.exports = {connect};
+
+module.exports = connect;
